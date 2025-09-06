@@ -6,8 +6,10 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "express": "^4.17.1",
+    "express-session": "^1.18.2",
     "mariadb": "^2.5.5",
     "morgan": "^1.10.1",
     "pg": "^8.16.3"
