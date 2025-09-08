@@ -55,6 +55,24 @@ const User = {
     } catch (error) {
       throw error;
     }
+  },
+
+  // 初始化資料庫
+  initializeDatabase: async () => {
+    try {
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS users (
+          id SERIAL PRIMARY KEY,
+          name VARCHAR(100) NOT NULL,
+          email VARCHAR(100) UNIQUE NOT NULL,
+          created_at TIMESTAMP DEFAULT NOW(),
+          updated_at TIMESTAMP DEFAULT NOW()
+        )
+      `);
+      console.log('Database initialized successfully');
+    } catch (error) {
+      console.error('Error initializing database:', error);
+    }
   }
 };
 
